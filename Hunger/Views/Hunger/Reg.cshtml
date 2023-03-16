@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Reg";
+    Layout = "~/Views/Shared/_LayoutHunger.cshtml";
+}
+
+<h2>Registration</h2>
+<form method="post">
+    <input type="text" name="Name" placeholder="Name" class="form-control" /><br />
+    <input type="password" name="Password" placeholder="Password" class="form-control" /><br />
+    <input type="text" name="Email" placeholder="Email" class="form-control" /><br />
+    <input type="text" name="Contact" placeholder="Contact Number" class="form-control" /><br />
+    Join as : <select name="Role" id="Role">
+        <option selected disabled>Select</option>
+        <option value="ins">Institution</option>
+        <option value="emp">Employee</option>
+    </select> <br /><br />
+    <input type="submit" value="Join" class="btn btn-success" />
+</form>
+
