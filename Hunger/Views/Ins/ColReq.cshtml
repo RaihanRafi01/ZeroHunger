@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "ColReq";
+    Layout = "~/Views/Shared/_LayoutPageIns.cshtml";
+}
+
+<h2>Request For Collection</h2>
+
+<form method="post">
+    <input type="text" name="FoodQty" placeholder="Food Quantity" class="form-control" /><br />
+    Expire Date: <input type="date" value="@(Model == null? "":Model.ExpDate.ToString("yyyy-MM-dd"))" name="ExpDate" /> <br />
+    <input type="submit" value="Submit" class="btn btn-success" />
+</form>
+

@@ -46,7 +46,7 @@ namespace Hunger.Controllers
                 if (user != null)
                 {
                     
-                    return RedirectToAction("Index", "Hunger");
+                    return RedirectToAction("Index", "Ins", new {id=user.Id} );
                 }
                 if (userE != null)
                 {

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Hunger.EF.Models.Collection>
+
+@{
+    ViewBag.Title = "ViewReq";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>View Request</h2>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Institution.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FoodQty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReqDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExpDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>Assign Employee</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Institution.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FoodQty)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReqDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExpDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <th><a href="/Admin/AssignEmp/@item.Id">Assign</a> </th>
+            </tr>
+        }
+
+    </table>
+

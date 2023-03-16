@@ -13,5 +13,12 @@ namespace Hunger.EF.Models
         public string Email { get; set; }
         public string Contact { get; set; }
 
+        public virtual ICollection<EmpAssign> EmpAssigns { get; set; }
+        public Employee()
+        {
+            EmpAssigns = new List<EmpAssign>();
+
+        }
+
     }
 }

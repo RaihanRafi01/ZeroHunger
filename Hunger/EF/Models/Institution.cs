@@ -10,5 +10,11 @@ namespace Hunger.EF.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Password { get; set; }
+
+        public virtual ICollection<Collection> Collections { get; set; }
+        public Institution() 
+        {
+            Collections = new List<Collection>();
+        }
     }
 }

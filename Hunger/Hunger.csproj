@@ -130,7 +130,10 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HungerController.cs" />
+    <Compile Include="Controllers\InsController.cs" />
     <Compile Include="EF\DbClass.cs" />
+    <Compile Include="EF\Models\Collection.cs" />
+    <Compile Include="EF\Models\EmpAssign.cs" />
     <Compile Include="EF\Models\Employee.cs" />
     <Compile Include="EF\Models\Institution.cs" />
     <Compile Include="Global.asax.cs">
@@ -139,6 +142,30 @@
     <Compile Include="Migrations\202303161138133_addempAndIns.cs" />
     <Compile Include="Migrations\202303161138133_addempAndIns.designer.cs">
       <DependentUpon>202303161138133_addempAndIns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303161608073_adding_table1.cs" />
+    <Compile Include="Migrations\202303161608073_adding_table1.designer.cs">
+      <DependentUpon>202303161608073_adding_table1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303161609507_datetime.cs" />
+    <Compile Include="Migrations\202303161609507_datetime.designer.cs">
+      <DependentUpon>202303161609507_datetime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303161638033_roleaddinginEMPandINS.cs" />
+    <Compile Include="Migrations\202303161638033_roleaddinginEMPandINS.designer.cs">
+      <DependentUpon>202303161638033_roleaddinginEMPandINS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303161647110_removerole.cs" />
+    <Compile Include="Migrations\202303161647110_removerole.designer.cs">
+      <DependentUpon>202303161647110_removerole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303162008542_table3ADD.cs" />
+    <Compile Include="Migrations\202303162008542_table3ADD.designer.cs">
+      <DependentUpon>202303162008542_table3ADD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303162013478_spelingmistake.cs" />
+    <Compile Include="Migrations\202303162013478_spelingmistake.designer.cs">
+      <DependentUpon>202303162013478_spelingmistake.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\LoginModel.cs" />
@@ -190,9 +217,14 @@
     <Content Include="Views\Shared\_LayoutPageAdmin.cshtml" />
     <Content Include="Views\Admin\ViewIns.cshtml" />
     <Content Include="Views\Admin\ViewEmp.cshtml" />
+    <Content Include="Views\Shared\_LayoutPageIns.cshtml" />
+    <Content Include="Views\Ins\Index.cshtml" />
+    <Content Include="Views\Ins\ColReq.cshtml" />
+    <Content Include="Views\Admin\ViewReq.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Organization\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -210,6 +242,24 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202303161138133_addempAndIns.resx">
       <DependentUpon>202303161138133_addempAndIns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303161608073_adding_table1.resx">
+      <DependentUpon>202303161608073_adding_table1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303161609507_datetime.resx">
+      <DependentUpon>202303161609507_datetime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303161638033_roleaddinginEMPandINS.resx">
+      <DependentUpon>202303161638033_roleaddinginEMPandINS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303161647110_removerole.resx">
+      <DependentUpon>202303161647110_removerole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303162008542_table3ADD.resx">
+      <DependentUpon>202303162008542_table3ADD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303162013478_spelingmistake.resx">
+      <DependentUpon>202303162013478_spelingmistake.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
