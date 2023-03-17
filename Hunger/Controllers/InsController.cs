@@ -11,9 +11,9 @@ namespace Hunger.Controllers
     public class InsController : Controller
     {
         // GET: Ins
-        public ActionResult Index(int id)
+        public ActionResult Index()
         {
-            TempData["UID"] = id;
+           //int id = (int)Session["UID"];
             
             return View();
         }
@@ -28,7 +28,7 @@ namespace Hunger.Controllers
           
             DbClass db = new DbClass();
             Collection c = new Collection();
-            int id = (int)TempData["UID"];
+            int id = (int)Session["UID"];
             c.Ins_id = id;
             c.FoodQty = coll.FoodQty;
             c.ReqDate = DateTime.Now;

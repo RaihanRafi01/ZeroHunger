@@ -128,11 +128,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HungerController.cs" />
     <Compile Include="Controllers\InsController.cs" />
     <Compile Include="EF\DbClass.cs" />
     <Compile Include="EF\Models\Collection.cs" />
+    <Compile Include="EF\Models\Deliver.cs" />
     <Compile Include="EF\Models\EmpAssign.cs" />
     <Compile Include="EF\Models\Employee.cs" />
     <Compile Include="EF\Models\Institution.cs" />
@@ -166,6 +168,14 @@
     <Compile Include="Migrations\202303162013478_spelingmistake.cs" />
     <Compile Include="Migrations\202303162013478_spelingmistake.designer.cs">
       <DependentUpon>202303162013478_spelingmistake.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303170920050_table4adding.cs" />
+    <Compile Include="Migrations\202303170920050_table4adding.designer.cs">
+      <DependentUpon>202303170920050_table4adding.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303171408125_abcd.cs" />
+    <Compile Include="Migrations\202303171408125_abcd.designer.cs">
+      <DependentUpon>202303171408125_abcd.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\LoginModel.cs" />
@@ -221,6 +231,10 @@
     <Content Include="Views\Ins\Index.cshtml" />
     <Content Include="Views\Ins\ColReq.cshtml" />
     <Content Include="Views\Admin\ViewReq.cshtml" />
+    <Content Include="Views\Admin\ViewAssEmp.cshtml" />
+    <Content Include="Views\Shared\_LayoutEmp.cshtml" />
+    <Content Include="Views\Employee\Index.cshtml" />
+    <Content Include="Views\Employee\PerformDeliver.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -260,6 +274,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303162013478_spelingmistake.resx">
       <DependentUpon>202303162013478_spelingmistake.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303170920050_table4adding.resx">
+      <DependentUpon>202303170920050_table4adding.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303171408125_abcd.resx">
+      <DependentUpon>202303171408125_abcd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

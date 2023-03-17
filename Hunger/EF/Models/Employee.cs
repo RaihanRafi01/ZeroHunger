@@ -14,11 +14,13 @@ namespace Hunger.EF.Models
         public string Contact { get; set; }
 
         public virtual ICollection<EmpAssign> EmpAssigns { get; set; }
+
+       // public virtual ICollection<Deliver> Delivers { get; set; }
         public Employee()
         {
             EmpAssigns = new List<EmpAssign>();
-
+            //Delivers = new List<Deliver>();
         }
-
+        
     }
 }

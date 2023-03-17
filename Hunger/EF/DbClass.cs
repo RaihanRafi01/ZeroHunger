@@ -13,5 +13,6 @@ namespace Hunger.EF
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Collection> Collections { get; set; }
         public DbSet<EmpAssign> EmpAssigns { get; set; }
+        public DbSet<Deliver> Delivers { get; set; }
     }
 }

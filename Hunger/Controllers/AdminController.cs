@@ -41,31 +41,52 @@ namespace Hunger.Controllers
        
         public ActionResult AssignEmp(int id)
         {
+            // click a link to execute these 
             DbClass db = new DbClass();
             Collection c = new Collection();
             EmpAssign a = new EmpAssign();
+            Deliver deliver = new Deliver();
+
             int CountEmp = db.Employees.Count();
             Random random= new Random();
-            var ed = (from s in db.Collections
+            var col = (from s in db.Collections
                       where s.Id == id
                       select s).SingleOrDefault();
             
-            c.Id = ed.Id;
-            c.Ins_id = ed.Ins_id;
-            c.FoodQty = ed.FoodQty;
-            c.ReqDate= ed.ReqDate;
-            c.ExpDate = ed.ExpDate;
+            c.Id = col.Id;
+            c.Ins_id = col.Ins_id;
+            c.FoodQty = col.FoodQty;
+            c.ReqDate= col.ReqDate;
+            c.ExpDate = col.ExpDate;
             c.Status = "Assigned";
-            db.Entry(ed).CurrentValues.SetValues(c);
-            a.Col_id = 1;
-            a.Emp_id = random.Next(1, CountEmp);
+            db.Entry(col).CurrentValues.SetValues(c);
+            db.SaveChanges();
+
+            int randomId = random.Next(1, CountEmp);
+            var emp = (from s in db.Employees
+                      where s.Id == randomId
+                       select s).SingleOrDefault();
+            a.Col_id = c.Id;
+            a.Emp_id = emp.Id;
             a.Status= "Assigned";
             a.AssignDate = DateTime.Now;
             db.EmpAssigns.Add(a);
             db.SaveChanges();
+
+            deliver.EmpAss_id= emp.Id;
+            deliver.Name = emp.Name;
+            deliver.DeliveryDate = DateTime.Now;
+            deliver.Status = "Ready for Deliver";
+            db.Delivers.Add(deliver);
+            db.SaveChanges();
             return RedirectToAction("ViewReq");
         }
-        
+        public ActionResult ViewAssEmp()
+        {
+            DbClass db = new DbClass();
+            var list = db.EmpAssigns.ToList();
+            return View(list);
+        }
 
     }
 }

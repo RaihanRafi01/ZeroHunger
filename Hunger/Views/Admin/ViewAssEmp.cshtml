@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Hunger.EF.Models.EmpAssign>
+
+@{
+    ViewBag.Title = "ViewAssEmp";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>View Assigned Employees</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Employee Name
+        </th>
+        <th>
+            Restaurant Name
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Collection.FoodQty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AssignDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Collection.Institution.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Collection.FoodQty)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AssignDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+    </tr>
+}
+
+</table>

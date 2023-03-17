@@ -45,13 +45,15 @@ namespace Hunger.Controllers
                 // 
                 if (user != null)
                 {
-                    
-                    return RedirectToAction("Index", "Ins", new {id=user.Id} );
+                    Session["UID"] = user.Id;
+                    //new { id = user.Id }
+
+                    return RedirectToAction("Index", "Ins");
                 }
                 if (userE != null)
                 {
-
-                    return RedirectToAction("Index", "Hunger");
+                   // Session["UID"] = user.Id;
+                    return RedirectToAction("Index", "Employee");
                 }
             }
 
