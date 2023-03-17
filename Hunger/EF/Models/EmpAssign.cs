@@ -22,10 +22,10 @@ namespace Hunger.EF.Models
         public virtual Collection Collection { get; set; }
         public virtual Employee Employee { get; set; }
 
-        public virtual ICollection<Deliver> Delivers { get; set; }
+        public virtual ICollection<DeliverReq> DeliverReqs { get; set; }
         public EmpAssign()
         {
-            Delivers = new List<Deliver>();
+            DeliverReqs = new List<DeliverReq>();
 
         }
     }

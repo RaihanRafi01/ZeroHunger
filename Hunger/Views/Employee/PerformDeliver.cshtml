@@ -11,7 +11,7 @@
     <tr>
         <th>Id</th>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+           Employee Name
         </th>
         <th>
             Resturant Name
@@ -40,16 +40,16 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.EmpAssign.Collection.Institution.Name)
+            @Html.DisplayFor(modelItem => item.ResName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.EmpAssign.Collection.FoodQty)
+            @Html.DisplayFor(modelItem => item.FoodQty)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.EmpAssign.Collection.ExpDate)
+            @Html.DisplayFor(modelItem => item.ExpDate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.AssignDate)
+            @Html.DisplayFor(modelItem => item.AssingDate)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Status)

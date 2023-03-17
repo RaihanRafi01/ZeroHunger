@@ -45,39 +45,38 @@ namespace Hunger.Controllers
             DbClass db = new DbClass();
             Collection c = new Collection();
             EmpAssign a = new EmpAssign();
-            Deliver deliver = new Deliver();
+            DeliverReq deliver = new DeliverReq();
 
             int CountEmp = db.Employees.Count();
+
             Random random= new Random();
             var col = (from s in db.Collections
                       where s.Id == id
                       select s).SingleOrDefault();
             
-            c.Id = col.Id;
-            c.Ins_id = col.Ins_id;
-            c.FoodQty = col.FoodQty;
-            c.ReqDate= col.ReqDate;
-            c.ExpDate = col.ExpDate;
-            c.Status = "Assigned";
-            db.Entry(col).CurrentValues.SetValues(c);
-            db.SaveChanges();
 
+            // adding a random employ to assign delever
             int randomId = random.Next(1, CountEmp);
+
             var emp = (from s in db.Employees
                       where s.Id == randomId
                        select s).SingleOrDefault();
-            a.Col_id = c.Id;
+            a.Col_id = col.Id;
             a.Emp_id = emp.Id;
             a.Status= "Assigned";
             a.AssignDate = DateTime.Now;
             db.EmpAssigns.Add(a);
             db.SaveChanges();
 
+            // Add deleverReq from collection
             deliver.EmpAss_id= emp.Id;
             deliver.Name = emp.Name;
-            deliver.DeliveryDate = DateTime.Now;
+            deliver.ResName = col.Institution.Name;
+            deliver.FoodQty = col.FoodQty;
+            deliver.ExpDate= col.ExpDate;
+            deliver.AssingDate = DateTime.Now;
             deliver.Status = "Ready for Deliver";
-            db.Delivers.Add(deliver);
+            db.DeliverReqs.Add(deliver);
             db.SaveChanges();
             return RedirectToAction("ViewReq");
         }

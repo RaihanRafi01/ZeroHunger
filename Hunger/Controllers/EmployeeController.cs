@@ -17,7 +17,7 @@ namespace Hunger.Controllers
         public ActionResult PerformDeliver()
         {
             DbClass db = new DbClass();
-            var list = db.Delivers.ToList();
+            var list = db.DeliverReqs.ToList();
             return View(list);
         }
 
