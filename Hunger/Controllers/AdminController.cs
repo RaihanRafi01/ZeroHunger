@@ -45,7 +45,7 @@ namespace Hunger.Controllers
             DbClass db = new DbClass();
             Collection c = new Collection();
             EmpAssign a = new EmpAssign();
-            DeliverReq deliver = new DeliverReq();
+            Deliver_Req deliver = new Deliver_Req();
 
             int CountEmp = db.Employees.Count();
 
@@ -63,21 +63,26 @@ namespace Hunger.Controllers
                        select s).SingleOrDefault();
             a.Col_id = col.Id;
             a.Emp_id = emp.Id;
-            a.Status= "Assigned";
+            a.Status= "Collected";
             a.AssignDate = DateTime.Now;
             db.EmpAssigns.Add(a);
             db.SaveChanges();
 
             // Add deleverReq from collection
-            deliver.EmpAss_id= emp.Id;
+            
+            deliver.Employee_Assign_id = a.Id;
             deliver.Name = emp.Name;
-            deliver.ResName = col.Institution.Name;
-            deliver.FoodQty = col.FoodQty;
-            deliver.ExpDate= col.ExpDate;
-            deliver.AssingDate = DateTime.Now;
-            deliver.Status = "Ready for Deliver";
-            db.DeliverReqs.Add(deliver);
+            deliver.Resturant_Name = col.Institution.Name;
+            deliver.Food_Quality = col.FoodQty;
+            deliver.Expire_Date = col.ExpDate;
+            deliver.Assing_Date = DateTime.Now;
+            deliver.Status_Delivery = "Ready for Deliver";
+            
+            db.Deliver_Reqs.Add(deliver);
             db.SaveChanges();
+            // remove not working properly 
+            //db.Collections.Remove(col);
+           // db.SaveChanges();
             return RedirectToAction("ViewReq");
         }
         public ActionResult ViewAssEmp()

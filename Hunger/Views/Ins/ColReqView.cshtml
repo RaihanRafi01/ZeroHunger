@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Hunger.EF.Models.Duplicate_Coll>
+
+@{
+    ViewBag.Title = "ColReqView";
+    Layout = "~/Views/Shared/_LayoutPageIns.cshtml";
+}
+<h2>Previous Request</h2>
+
+
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>
+            Resturant Name
+        </th>
+        <th>
+            Food Quantity
+        </th>
+        <th>
+            Request Date
+        </th>
+        <th>
+            Expire Date
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Institution.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FoodQty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReqDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+        </tr>
+    }
+
+</table>

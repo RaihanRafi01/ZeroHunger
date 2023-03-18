@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Hunger.EF.Models.Deliver_Req>
+
+@{
+    ViewBag.Title = "DeliverView";
+    Layout = "~/Views/Shared/_LayoutEmp.cshtml";
+}
+
+<h2>Deliver View</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Resturant_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Food_Quality)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Expire_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Assing_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status_Delivery)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Resturant_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Food_Quality)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Expire_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Assing_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status_Delivery)
+        </td>
+        <th><a href="/Employee/PerformDeliver/@item.Id">Deliver</a> </th>
+    </tr>
+}
+
+</table>

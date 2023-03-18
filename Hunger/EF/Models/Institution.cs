@@ -12,8 +12,10 @@ namespace Hunger.EF.Models
         public string Password { get; set; }
 
         public virtual ICollection<Collection> Collections { get; set; }
+        public virtual ICollection<Duplicate_Coll> Duplicate_Colls { get; set; }
         public Institution() 
         {
+            Duplicate_Colls = new HashSet<Duplicate_Coll>();
             Collections = new List<Collection>();
         }
     }

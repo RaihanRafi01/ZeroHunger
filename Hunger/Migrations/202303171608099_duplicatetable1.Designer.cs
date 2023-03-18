@@ -7,13 +7,13 @@ namespace Hunger.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class addExtraDATAonTABLE4 : IMigrationMetadata
+    public sealed partial class duplicatetable1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addExtraDATAonTABLE4));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(duplicatetable1));
         
         string IMigrationMetadata.Id
         {
-            get { return "202303171416578_addExtraDATAonTABLE4"; }
+            get { return "202303171608099_duplicatetable1"; }
         }
         
         string IMigrationMetadata.Source

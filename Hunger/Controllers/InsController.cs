@@ -28,6 +28,7 @@ namespace Hunger.Controllers
           
             DbClass db = new DbClass();
             Collection c = new Collection();
+            Duplicate_Coll a = new Duplicate_Coll();
             int id = (int)Session["UID"];
             c.Ins_id = id;
             c.FoodQty = coll.FoodQty;
@@ -35,8 +36,20 @@ namespace Hunger.Controllers
             c.ExpDate = coll.ExpDate;
             c.Status= "Pending";
             db.Collections.Add(c);
+            a.Ins_id = id;
+            a.FoodQty = coll.FoodQty;
+            a.ReqDate = DateTime.Now;
+            a.ExpDate = coll.ExpDate;
+            a.Status = "Pending";
+            db.duplicate_Colls.Add(a);
             db.SaveChanges();
             return View();
+        }
+        public ActionResult ColReqView()
+        {
+            DbClass db = new DbClass();
+            var list = db.duplicate_Colls.ToList();
+            return View(list);
         }
     }
 }

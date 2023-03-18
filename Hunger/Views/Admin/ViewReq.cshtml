@@ -12,21 +12,21 @@
                 @Html.DisplayNameFor(model => model.Id)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Institution.Name)
+                Resturant Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FoodQty)
+                Food Quantity
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ReqDate)
+                Request Date
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ExpDate)
+                Expire Date
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Status)
             </th>
-            <th>Assign Employee</th>
+            <th>Collect Food</th>
         </tr>
 
         @foreach (var item in Model)
@@ -50,7 +50,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Status)
                 </td>
-                <th><a href="/Admin/AssignEmp/@item.Id">Assign</a> </th>
+                <th><a href="/Admin/AssignEmp/@item.Id">Collect</a> </th>
             </tr>
         }
 

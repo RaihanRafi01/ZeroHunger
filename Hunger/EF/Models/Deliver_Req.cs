@@ -6,22 +6,21 @@ using System.Web;
 
 namespace Hunger.EF.Models
 {
-    public class DeliverReq
+    public class Deliver_Req
     {
         public int Id { get; set; }
 
         [ForeignKey("EmpAssign")]
-        public int EmpAss_id { get; set; }
+        public int Employee_Assign_id { get; set; }
         public string Name { get; set; }
 
-        public string ResName { get; set; }
+        public string Resturant_Name { get; set; }
 
-        public string FoodQty { get; set; }
+        public string Food_Quality { get; set; }
 
-        public DateTime ExpDate { get; set; }
-        public DateTime AssingDate { get; set; }
-        public string Status { get; set; }
+        public DateTime Expire_Date { get; set; }
+        public DateTime Assing_Date { get; set; }
+        public string Status_Delivery { get; set; }
         public virtual EmpAssign EmpAssign { get; set; }
-
     }
 }
