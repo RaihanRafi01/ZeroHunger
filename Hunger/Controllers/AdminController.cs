@@ -53,7 +53,14 @@ namespace Hunger.Controllers
             var col = (from s in db.Collections
                       where s.Id == id
                       select s).SingleOrDefault();
-            
+            c.Id = col.Id;
+            c.Ins_id = col.Ins_id;
+            c.FoodQty = col.FoodQty;
+            c.ReqDate = col.ReqDate;
+            c.ExpDate = col.ExpDate;
+            c.Status = "Collected";
+            db.Entry(col).CurrentValues.SetValues(c);
+            db.SaveChanges();
 
             // adding a random employ to assign delever
             int randomId = random.Next(1, CountEmp);

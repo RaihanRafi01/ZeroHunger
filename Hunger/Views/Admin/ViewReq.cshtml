@@ -50,7 +50,15 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Status)
                 </td>
-                <th><a href="/Admin/AssignEmp/@item.Id">Collect</a> </th>
+                @if (item.Status.Equals("Pending"))
+                {
+                    <th><a href="/Admin/AssignEmp/@item.Id">Collect</a> </th>
+                }
+                @if (item.Status.Equals("Collected"))
+                {
+                    <th>Already Collected</th>
+                }
+                
             </tr>
         }
 
