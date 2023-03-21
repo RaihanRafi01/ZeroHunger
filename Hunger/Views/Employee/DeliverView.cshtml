@@ -36,6 +36,7 @@
 
         @foreach (var item in Model)
         {
+            int expire = DateTime.Compare(DateTime.Now, item.Expire_Date);
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Id)
@@ -49,9 +50,18 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Food_Quality)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Expire_Date)
-                </td>
+                @if (expire < 0)
+                {
+                    <td style="color: forestgreen;">
+                        @Html.DisplayFor(modelItem => item.Expire_Date)
+                    </td>
+                }
+                @if (expire > 0)
+                {
+                    <td style="color: red;">
+                        @Html.DisplayFor(modelItem => item.Expire_Date)
+                    </td>
+                }
                 <td>
                     @Html.DisplayFor(modelItem => item.Assing_Date)
                 </td>

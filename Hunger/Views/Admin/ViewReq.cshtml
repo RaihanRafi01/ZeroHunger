@@ -5,62 +5,73 @@
     Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
 }
 
-<h2>View Requests</h2>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
-            <th>
-                Resturant Name
-            </th>
-            <th>
-                Food Quantity
-            </th>
-            <th>
-                Request Date
-            </th>
-            <th>
-                Expire Date
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th>Collect Food</th>
-        </tr>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Institution.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FoodQty)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ReqDate)
-                </td>
-                <td>
+<h2>View Requests</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            Resturant Name
+        </th>
+        <th>
+            Food Quantity
+        </th>
+        <th>
+            Request Date
+        </th>
+        <th>
+            Expire Date
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>Collect Food</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        int expire = DateTime.Compare(DateTime.Now, item.ExpDate);
+       
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Institution.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FoodQty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReqDate)
+            </td>
+            @if (expire < 0)
+            {
+                <td style="color: forestgreen;">
                     @Html.DisplayFor(modelItem => item.ExpDate)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Status)
+            }
+            @if (expire > 0)
+            {
+                <td style="color: red;">
+                    @Html.DisplayFor(modelItem => item.ExpDate)
                 </td>
-                @if (item.Status.Equals("Pending"))
-                {
-                    <th><a href="/Admin/AssignEmp/@item.Id">Collect</a> </th>
-                }
-                @if (item.Status.Equals("Collected"))
-                {
-                    <th>Already Collected</th>
-                }
-                
-            </tr>
-        }
+            }
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            @if (item.Status.Equals("Pending"))
+            {
+                <th><a href="/Admin/AssignEmp/@item.Id">Collect</a> </th>
+            }
+            @if (item.Status.Equals("Collected"))
+            {
+                <th>Already Collected</th>
+            }
+        </tr>
+    }
 
-    </table>
+</table>
 

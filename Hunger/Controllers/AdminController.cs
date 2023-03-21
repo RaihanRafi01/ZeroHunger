@@ -37,7 +37,8 @@ namespace Hunger.Controllers
         {
             DbClass db = new DbClass();
             var list = db.Collections.ToList();
-            return View(list);
+            var lis = list.OrderByDescending(d => d.Id);
+            return View(lis);
         }
 
        
