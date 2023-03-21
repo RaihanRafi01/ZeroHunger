@@ -1,4 +1,5 @@
-﻿using Hunger.EF;
+﻿using Hunger.Aut;
+using Hunger.EF;
 using Hunger.EF.Models;
 using Hunger.Migrations;
 using System;
@@ -10,6 +11,7 @@ using static System.Data.Entity.Infrastructure.Design.Executor;
 
 namespace Hunger.Controllers
 {
+    [LogAdmin]
     public class AdminController : Controller
     {
         // GET: Admin

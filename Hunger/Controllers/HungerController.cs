@@ -30,6 +30,12 @@ namespace Hunger.Controllers
             {
                 if (login.Name.Equals("admin") && login.Password.Equals("123"))
                 {
+                    Session["Admin"] = "admin";
+                    var retUrl = Request["ReturnUrl"];
+                    if (retUrl != null)
+                    {
+                        return Redirect(retUrl);
+                    }
                     return RedirectToAction("Index", "Admin");
                 }
 
@@ -49,12 +55,24 @@ namespace Hunger.Controllers
                     Session["UID"] = user.Id;
                     Session["UN"] = user.Name;
 
+                    var retUrl = Request["ReturnUrl"];
+                    if (retUrl != null)
+                    {
+                        return Redirect(retUrl);
+                    }
+
                     return RedirectToAction("Index", "Ins");
                 }
                 if (userE != null)
                 {
                     Session["EID"] = userE.Id;
                     Session["EN"] = userE.Name;
+
+                    var retUrl = Request["ReturnUrl"];
+                    if (retUrl != null)
+                    {
+                        return Redirect(retUrl);
+                    }
 
                     return RedirectToAction("Index", "Employee");
                 }
@@ -96,5 +114,10 @@ namespace Hunger.Controllers
             return RedirectToAction("Login");
         }
 
+        public ActionResult LogOut()
+        {
+            Session.Abandon();
+            return RedirectToAction("Index");
+        }
     }
 }

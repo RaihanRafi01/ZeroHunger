@@ -1,4 +1,5 @@
-﻿using Hunger.EF;
+﻿using Hunger.Aut;
+using Hunger.EF;
 using Hunger.EF.Models;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Web.Mvc;
 
 namespace Hunger.Controllers
 {
+    [LogEmp]
     public class EmployeeController : Controller
     {
         // GET: Employee
