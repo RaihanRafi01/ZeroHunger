@@ -25,13 +25,14 @@ namespace Hunger.Controllers
         [HttpPost]
         public ActionResult Login(LoginModel login)
         {
-            if (login.Name.Equals("admin") && login.Password.Equals("123")) 
-            {
-                return RedirectToAction("Index", "Admin");
-            }
+            
             if (ModelState.IsValid)
             {
-                
+                if (login.Name.Equals("admin") && login.Password.Equals("123"))
+                {
+                    return RedirectToAction("Index", "Admin");
+                }
+
                 DbClass db = new DbClass();
                 var user = (from u in db.Institutions
                             where u.Name.Equals(login.Name)

@@ -182,9 +182,9 @@
     <Compile Include="Migrations\202303172024110_addtable04NEW.designer.cs">
       <DependentUpon>202303172024110_addtable04NEW.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202303211401577_update_duplicate.cs" />
-    <Compile Include="Migrations\202303211401577_update_duplicate.designer.cs">
-      <DependentUpon>202303211401577_update_duplicate.cs</DependentUpon>
+    <Compile Include="Migrations\202303211503109_ab.cs" />
+    <Compile Include="Migrations\202303211503109_ab.designer.cs">
+      <DependentUpon>202303211503109_ab.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\LoginModel.cs" />
@@ -294,8 +294,8 @@
     <EmbeddedResource Include="Migrations\202303172024110_addtable04NEW.resx">
       <DependentUpon>202303172024110_addtable04NEW.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303211401577_update_duplicate.resx">
-      <DependentUpon>202303211401577_update_duplicate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202303211503109_ab.resx">
+      <DependentUpon>202303211503109_ab.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

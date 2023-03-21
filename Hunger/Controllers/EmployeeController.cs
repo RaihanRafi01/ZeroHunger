@@ -22,11 +22,10 @@ namespace Hunger.Controllers
         {
             int id = (int)Session["EID"];
             DbClass db = new DbClass();
-            //var list = db.Deliver_Reqs.ToList();
-            //var list = (from s in db.Deliver_Reqs
-            // where s.Employee_Assign_id == id
-            // select s).ToList();
-            var list = db.Deliver_Reqs.Where(d => d.EmpAssign.Emp_id == id).ToList();
+            var list = (from s in db.Deliver_Reqs
+            where s.EmpAssign.Emp_id == id
+            select s).ToList();
+            //var list = db.Deliver_Reqs.Where(d => d.EmpAssign.Emp_id == id).ToList();
             ViewBag.count = list.Count;
 
             return View(list);

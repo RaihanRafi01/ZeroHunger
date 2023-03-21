@@ -14,9 +14,6 @@ namespace Hunger.EF.Models
         public string FoodQty { get; set; }
         public DateTime ReqDate { get; set; }
         public DateTime ExpDate { get; set; }
-        public string Status { get; set; }
-
         public virtual Institution Institution { get; set; }
-        
     }
 }

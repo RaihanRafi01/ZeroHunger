@@ -40,15 +40,22 @@ namespace Hunger.Controllers
             a.FoodQty = coll.FoodQty;
             a.ReqDate = DateTime.Now;
             a.ExpDate = coll.ExpDate;
-            a.Status = "Pending";
             db.duplicate_Colls.Add(a);
             db.SaveChanges();
             return View();
         }
+
+        //
+
         public ActionResult ColReqView()
         {
+            int id = (int)Session["UID"];
             DbClass db = new DbClass();
-            var list = db.duplicate_Colls.ToList();
+
+            var list = (from s in db.duplicate_Colls
+            where s.Ins_id == id
+            select s).ToList();
+            ViewBag.count = list.Count;
             return View(list);
         }
     }
