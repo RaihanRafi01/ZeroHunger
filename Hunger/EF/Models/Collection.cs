@@ -20,9 +20,12 @@ namespace Hunger.EF.Models
 
 
         public virtual ICollection<EmpAssign> EmpAssigns { get; set; }
+        
+        
         public Collection()
         {
             EmpAssigns = new List<EmpAssign>();
+           
 
         }
 

@@ -87,9 +87,20 @@ namespace Hunger.Controllers
             
             db.Deliver_Reqs.Add(deliver);
             db.SaveChanges();
-            // remove not working properly 
-            //db.Collections.Remove(col);
-           // db.SaveChanges();
+
+           /* var upd = (from s in db.Collections
+                       where s.Id == id
+                       select s).SingleOrDefault();
+            c.Id = col.Id;
+            c.Ins_id = col.Ins_id;
+            c.FoodQty = col.FoodQty;
+            c.ReqDate = col.ReqDate;
+            c.ExpDate = col.ExpDate;
+            c.Status = "Collected";
+            db.Entry(col).CurrentValues.SetValues(upd);
+            db.SaveChanges();
+           */
+
             return RedirectToAction("ViewReq");
         }
         public ActionResult ViewAssEmp()

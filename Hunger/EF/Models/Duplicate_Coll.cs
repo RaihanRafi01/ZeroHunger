@@ -17,5 +17,6 @@ namespace Hunger.EF.Models
         public string Status { get; set; }
 
         public virtual Institution Institution { get; set; }
+        
     }
 }

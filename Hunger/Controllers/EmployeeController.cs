@@ -16,11 +16,19 @@ namespace Hunger.Controllers
         {
             return View();
         }
-       
+        
+        // need to change here 
         public ActionResult DeliverView()
         {
+            int id = (int)Session["EID"];
             DbClass db = new DbClass();
-            var list = db.Deliver_Reqs.ToList();
+            //var list = db.Deliver_Reqs.ToList();
+            //var list = (from s in db.Deliver_Reqs
+            // where s.Employee_Assign_id == id
+            // select s).ToList();
+            var list = db.Deliver_Reqs.Where(d => d.EmpAssign.Emp_id == id).ToList();
+            ViewBag.count = list.Count;
+
             return View(list);
         }
 
@@ -28,6 +36,7 @@ namespace Hunger.Controllers
         {
             DbClass db = new DbClass();
             Deliver_Req req = new Deliver_Req();
+            EmpAssign empAssign = new EmpAssign();
             var d = (from s in db.Deliver_Reqs
                        where s.Id == id
                        select s).SingleOrDefault();
@@ -45,7 +54,21 @@ namespace Hunger.Controllers
             db.SaveChanges();
             db.Deliver_Reqs.Remove(d);
             db.SaveChanges();
+
+                                // change status to deliverd in assing employee list
+
+            var emp = (from s in db.EmpAssigns
+                     where s.Id == d.Employee_Assign_id
+                       select s).SingleOrDefault();
+            empAssign.Id= emp.Id;
+            empAssign.Col_id = emp.Col_id;
+            empAssign.Emp_id = emp.Emp_id;
+            empAssign.AssignDate = emp.AssignDate;
+            empAssign.Status = "Deliverd";
+            db.Entry(emp).CurrentValues.SetValues(empAssign);
             
+            db.SaveChanges();
+
             return RedirectToAction("DeliverView");
 
         }

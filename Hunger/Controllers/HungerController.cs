@@ -14,7 +14,6 @@ namespace Hunger.Controllers
     public class HungerController : Controller
     {
 
-        // GET: Hunger
         public ActionResult Index()
         {
             return View();
@@ -32,6 +31,7 @@ namespace Hunger.Controllers
             }
             if (ModelState.IsValid)
             {
+                
                 DbClass db = new DbClass();
                 var user = (from u in db.Institutions
                             where u.Name.Equals(login.Name)
@@ -46,13 +46,15 @@ namespace Hunger.Controllers
                 if (user != null)
                 {
                     Session["UID"] = user.Id;
-                    //new { id = user.Id }
+                    Session["UN"] = user.Name;
 
                     return RedirectToAction("Index", "Ins");
                 }
                 if (userE != null)
                 {
-                   // Session["UID"] = user.Id;
+                    Session["EID"] = userE.Id;
+                    Session["EN"] = userE.Name;
+
                     return RedirectToAction("Index", "Employee");
                 }
             }
@@ -73,7 +75,6 @@ namespace Hunger.Controllers
             DbClass db = new DbClass();
             Employee emp = new Employee();
             Institution ins = new Institution();
-            Deliver_Req deliver = new Deliver_Req();
             var Role = reg.Role;
             if (Role == "emp") 
             {
@@ -91,19 +92,6 @@ namespace Hunger.Controllers
                 db.Institutions.Add(ins);
                 db.SaveChanges();
             }
-            /*
-            deliver.Employee_Assign_id =40;
-            deliver.Name = "test99";
-            deliver.Resturant_Name = "hi";
-            deliver.Food_Quality = "125";
-            deliver.Expire_Date = DateTime.Now;
-            deliver.Assing_Date = DateTime.Now;
-            deliver.Status_Delivery = "Ready for Deliver";
-
-            db.Deliver_Reqs.Add(deliver);
-            db.SaveChanges();
-            */
-
             return RedirectToAction("Login");
         }
 
